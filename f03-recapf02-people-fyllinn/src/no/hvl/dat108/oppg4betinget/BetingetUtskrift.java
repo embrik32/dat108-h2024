@@ -21,18 +21,22 @@ package no.hvl.dat108.oppg4betinget;
 
 public class BetingetUtskrift {
 	
-	private static void betingetUtskrift(String s, ???) {
-		???
+	private static void betingetUtskrift(String s, Betingelse b) {
+		if (b.erOppfylt(s)) {
+			System.out.println(s);
+		}
 	}
 	
 	public static void main(String[] args) {
-		???
+		String tekst = "XHallo";
+		betingetUtskrift(tekst, s -> s.startsWith("X"));
+		betingetUtskrift(tekst, s -> s.length() > 3);
 	}
 }
 
 @FunctionalInterface
-interface ??? {
-	???
+interface Betingelse {
+	boolean erOppfylt(String s);
 }
 
 
